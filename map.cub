@@ -1,0 +1,18 @@
+R  1280 720
+
+F 50,110,40
+
+S ./srcs/Textures/Texture_lion.xpm
+C 51, 153, 255
+EA ./srcs/Textures/Texture_wall_4.xpm
+
+SO    ./srcs/Textures/Texture_wall_5.xpm
+NO    ./srcs/Textures/Texture_wall_5.xpm
+
+111111111
+100000001
+100000001
+1000200W1
+100000001
+100000001
+111111111
