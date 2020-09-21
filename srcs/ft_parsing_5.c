@@ -6,18 +6,20 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 14:35:49 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/08/23 15:55:20 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/21 22:48:38 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_parsing_param_4(t_data *data, char *line, int fd, int i)
+void	ft_parsing_param_4(t_data *data, char *line, int fd, int i)
 {
 	if (!((line[i] == 'E' && line[i + 1] == 'A')
-	|| (line[i] == 'S')
+	|| (line[i] == 'S' && line[i + 1] == ' ')
+	|| (line[i] == 'S' && line[i + 1] == 'O')
 	|| (line[i] == 'F')
-	|| (line[i] == 'C')
+	|| (line[i] == 'C' && line[i + 1] == ' ')
+	|| (line[i] == 'C' && line[i + 1] == '_')
 	|| (line[i] == 'R')
 	|| (line[i] == 'W' && line[i + 1] == 'E')
 	|| (line[i] == 'N' && line[i + 1] == 'O')))
@@ -59,19 +61,19 @@ void	ft_parsing_param_2(t_data *data, char **line, int fd, int *count)
 	i = 0;
 	while ((*line)[i] && (*line)[i] == ' ')
 		i++;
-	if ((*line)[i] == 'F')
+	if ((*line)[i] == 'F' && (*line)[i + 1] == ' ')
 	{
 		if (data->f)
 			ft_error_message(9, data, *line);
 		data->f = ft_parsing_color(fd, line, data);
 	}
-	if ((*line)[i] == 'C')
+	if ((*line)[i] == 'C' && (*line)[i + 1] == ' ')
 	{
 		if (data->c)
 			ft_error_message(9, data, *line);
 		data->c = ft_parsing_color(fd, line, data);
 	}
-	if ((*line)[i] == 'R')
+	if ((*line)[i] == 'R' && (*line)[i + 1] == ' ')
 	{
 		if (data->height || data->width)
 			ft_error_message(9, data, *line);

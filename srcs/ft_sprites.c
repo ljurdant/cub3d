@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 21:09:01 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/08/21 14:43:49 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/21 22:25:17 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		ft_sprite_val(t_data *data, t_xy coord, t_xy dir, t_sprite *sprite)
 	if (l2 > 0.5 || ((pos.x - data->coord.x - data->pos.x) < 0 && dir.x > 0)
 	|| ((pos.x - data->coord.x - data->pos.x) > 0 && dir.x < 0)
 	|| sprite->l < 0.5)
-		sprite->tex_x = 0;
+		sprite->tex_x = -1;
 }
 
 t_sprite	*ft_new_sprite(t_data *data, t_xy coord, t_xy dir)

@@ -1,11 +1,12 @@
 R 1280 720
 
+
 F 50,110,50
 WE ./srcs/Textures/Texture_wall_4.xpm
-C_ ./srcs/Textures/Starry_night.xpm
+C 51, 110, 255
 S      ./srcs/Textures/Texture_lion.xpm
-C 51, 153, 255 
 EA ./srcs/Textures/Texture_wall_4.xpm
+C_ ./srcs/Textures/Starry_night.xpm
 
 SO ./srcs/Textures/Texture_wall_5.xpm
 NO    ./srcs/Textures/Texture_wall_5.xpm

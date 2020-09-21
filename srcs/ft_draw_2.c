@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 18:05:52 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/08/19 18:10:50 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/21 22:25:53 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_draw_sprite_2(t_data *data, t_sprite *sprite, int x)
 	max = ft_init_j_max(*data, sprite->height, &j, &sprite->y);
 	while (j < max)
 	{
-		if (j >= 0 && j < sprite->height)
+		if (j >= 0 && j < sprite->height && sprite->tex_x >= 0)
 		{
 			tex_pos.y = j * tex.height / sprite->height;
 			color = *(unsigned int*)(tex.tex.addr + ((int)tex_pos.y *
