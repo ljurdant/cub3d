@@ -18,7 +18,8 @@ BASE_SRCS =		srcs/main.c\
 				srcs/ft_save.c\
 				srcs/ft_map_errors.c\
 				srcs/ft_map_errors_2.c\
-				srcs/ft_error.c
+				srcs/ft_error.c\
+				srcs/ft_extension.c
 
 SRCS_LINUX =	srcs/ft_parsing_1_linux.c\
 				srcs/ft_events_linux.c\

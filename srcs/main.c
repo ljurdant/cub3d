@@ -6,7 +6,7 @@
 /*   By: ljurdant <ljurdant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 18:16:04 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/08/22 17:32:44 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/26 16:52:02 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		main(int ac, char **ag)
 	if (ac == 3 && ft_strncmp(ag[2], "--save", 7))
 		ft_arg_errors(2);
 	data.mlx = mlx_init();
+	ft_extension(ag[1]);
 	if ((o = open(ag[1], O_RDONLY)) < 0)
 		ft_error_message(8, &data, NULL);
 	ft_parsing(&data, o);

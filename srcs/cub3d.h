@@ -6,7 +6,7 @@
 /*   By: ljurdant <ljurdant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 16:47:57 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/08/23 15:50:26 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/26 16:47:08 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ int				ft_key_check(t_key_list *list, int keycode);
 int				ft_get_next_line(int fd, char **line);
 int				close_window(t_data *data);
 int				ft_init_j_max(t_data data, int h, int *j, int *y);
+void			ft_extension(char *str);
 void			ft_arg_errors(int p);
 void			ft_free_all(t_data *data);
 void			ft_save(t_data *data);
@@ -167,7 +168,7 @@ void			*ft_calloc(size_t count, size_t size);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			ft_map_error(char **map, t_data *data);
 void			ft_parsing_param(t_data *data, char **line, int fd, int *count);
-void			ft_parsing_param_2(t_data *data, char **line, int fd, int *count);
+void			ft_parsing_par_2(t_data *data, char **line, int fd, int *count);
 void			ft_parsing_r(t_data *data, char **line);
 void			ft_error_message(int p, t_data *data, char *line);
 void			ft_free_table(char **str);

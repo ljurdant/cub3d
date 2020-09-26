@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 14:35:49 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/08/23 15:55:20 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/26 16:34:26 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,6 @@ void	ft_parsing_param(t_data *data, char **line, int fd, int *count)
 			ft_error_message(9, data, *line);
 		data->we = ft_parsing_tex(data, line, fd);
 	}
-	ft_parsing_param_2(data, line, fd, count);
+	ft_parsing_par_2(data, line, fd, count);
 	(*count)++;
 }

@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 18:10:32 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/06 18:49:58 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/26 16:50:51 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,7 @@ void	ft_arg_errors(int p)
 		ft_put_str("Error\nWrong number of arguments\n");
 	if (p == 2)
 		ft_put_str("Error\nInvalid argument\n");
+	if (p == 3)
+		ft_put_str("Error\nFile must end with \".cub\" extension\n");
 	exit(0);
 }
