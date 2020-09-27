@@ -6,7 +6,7 @@
 /*   By: ljurdant <ljurdant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 17:11:11 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/27 19:55:02 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:58:18 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_tex	ft_parsing_tex(t_data *data, char **line, int fd, int i)
 	t_tex	tex;
 
 	size = 0;
-	i = i + 2;
+	i = i + 3;
 	ft_skip_spaces(*line, &i);
 	while ((*line)[i + size] && (*line)[i + size] != ' ')
 		size++;

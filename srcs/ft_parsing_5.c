@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 14:35:49 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/27 19:51:00 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:58:34 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_parsing_param_3(t_data *data, char **line, int fd)
 	{
 		if (data->s.tex.img)
 			ft_error_message(9, data, *line);
-		data->s = ft_parsing_tex(data, line, fd, i);
+		data->s = ft_parsing_tex(data, line, fd, i - 1);
 	}
 	ft_parsing_param_4(data, *line, fd, i);
 }

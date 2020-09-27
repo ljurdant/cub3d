@@ -5,9 +5,9 @@ F 50, 110, 40
 C 51, 153, 255   
 
 EA ./srcs/Textures/Texture_wall_4.xpm
-         WE ./srcs/Textures/Texture_wall_4.xpm
+   WE  ./srcs/Textures/Texture_wall_4.xpm
 
-S ./srcs/Textures/Texture_lion.xpm
+S  ./srcs/Textures/Texture_lion.xpm
 SO ./srcs/Textures/Texture_wall_5.xpm
 NO ./srcs/Textures/Texture_wall_5.xpm
 
