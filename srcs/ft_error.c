@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 18:10:32 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/26 16:50:51 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:11:41 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ void	ft_messages(int p)
 		ft_put_str("Error\nNo input value for ceiling\n");
 	if (p == 14)
 		ft_put_str("Error\nNo input value for floor\n");
+	if (p == 15)
+		ft_put_str("Error\nNo input value for resolution\n");
+	if (p == 16)
+		ft_put_str("Error\nCould not find texture file\n");
+	if (p == 17)
+		ft_put_str("Error\nNo input map\n");
 }
 
 void	ft_error_message(int p, t_data *data, char *line)
@@ -47,7 +53,7 @@ void	ft_error_message(int p, t_data *data, char *line)
 	if (p == 2)
 		ft_put_str("Error\n.cub file\n");
 	if (p == 3 || p == 8)
-		ft_put_str("Error\ncould not find file\n");
+		ft_put_str("Error\ncould not find map file\n");
 	if (p == 6)
 		ft_put_str("Error\nR value\n");
 	if (p == 7)
@@ -73,7 +79,7 @@ void	ft_check_params(t_data *data, char **line)
 	if (!data->so.tex.img)
 		return (ft_error_message(5, data, *line));
 	if (!data->height || !data->width)
-		return (ft_error_message(6, data, *line));
+		return (ft_error_message(15, data, *line));
 	if (!data->we.tex.img)
 		return (ft_error_message(10, data, *line));
 	if (!data->ea.tex.img)

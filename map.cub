@@ -1,19 +1,20 @@
-R  1280 720
+R 1000 800
 
-F 50, 110, 40
+F 50, 110, 40  
 
-C 51, 153, 255
-S ./srcs/Textures/Texture_lion.xpm
+C 51, 153, 255   
+
 EA ./srcs/Textures/Texture_wall_4.xpm
-WE ./srcs/Textures/Texture_wall_4.xpm
+         WE ./srcs/Textures/Texture_wall_4.xpm
 
-SO    ./srcs/Textures/Texture_wall_5.xpm
-NO    ./srcs/Textures/Texture_wall_5.xpm
+S ./srcs/Textures/Texture_lion.xpm
+SO ./srcs/Textures/Texture_wall_5.xpm
+NO ./srcs/Textures/Texture_wall_5.xpm
 
-111111111
-100000001
-100000001
-1000200W1
-100000001
-100000001
-111111111
+1111111
+1000001
+1000001
+1002001
+1000001
+100N001
+1111111

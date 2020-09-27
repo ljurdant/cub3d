@@ -6,7 +6,7 @@
 /*   By: ljurdant <ljurdant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 15:57:16 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/15 14:23:17 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 14:41:14 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ int		ft_is_floor(char c)
 {
 	if (c == '0' || c == '2' || c == 'N' || c == 'W'
 	|| c == 'E' || c == 'S')
+		return (1);
+	return (0);
+}
+
+int		ft_is_map(char c)
+{
+	if (c == '0' || c == '2' || c == 'N' || c == 'W'
+	|| c == 'E' || c == 'S' || c == '1' || c == ' ')
 		return (1);
 	return (0);
 }

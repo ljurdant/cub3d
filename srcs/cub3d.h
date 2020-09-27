@@ -6,7 +6,7 @@
 /*   By: ljurdant <ljurdant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 16:47:57 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/26 16:47:08 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:50:02 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ typedef struct	s_data
 }				t_data;
 
 int				ft_is_floor(char c);
-int				ft_is_floor_2(char *str, int j);
+int				ft_is_map(char c);
 int				ft_isdigit(int c);
 int				ft_search(char *line, char c);
 int				ft_parsing_nb(char *line, int *i, t_data *data);
@@ -148,6 +148,9 @@ int				ft_key_check(t_key_list *list, int keycode);
 int				ft_get_next_line(int fd, char **line);
 int				close_window(t_data *data);
 int				ft_init_j_max(t_data data, int h, int *j, int *y);
+int				ft_line_check(char *line);
+int				ft_skip_blanks(int fd, char **line);
+void			ft_skip_spaces(char *line, int *i);
 void			ft_extension(char *str);
 void			ft_arg_errors(int p);
 void			ft_free_all(t_data *data);
@@ -160,15 +163,14 @@ void			ft_move_right(t_data *data);
 void			ft_turn_left(t_data *data);
 void			ft_turn_right(t_data *data);
 void			ft_parsing(t_data *data, int fd);
-void			ft_skip_blanks(int fd, char **line);
 void			my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void			ft_sprite_addfront(t_list *list, t_sprite *new);
 void			ft_free_list(t_list *list);
 void			*ft_calloc(size_t count, size_t size);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			ft_map_error(char **map, t_data *data);
-void			ft_parsing_param(t_data *data, char **line, int fd, int *count);
-void			ft_parsing_par_2(t_data *data, char **line, int fd, int *count);
+void			ft_parsing_param(t_data *data, char **line, int fd);
+void			ft_parsing_param_2(t_data *data, char **line, int fd);
 void			ft_parsing_r(t_data *data, char **line);
 void			ft_error_message(int p, t_data *data, char *line);
 void			ft_free_table(char **str);
@@ -191,7 +193,7 @@ t_xy			ft_parsing_pos(void);
 t_xy			ft_parsing_dir(t_data data);
 t_xy			ft_parsing_coord(char **map);
 t_xy			ft_parsing_plane(t_data data);
-t_tex			ft_parsing_tex(t_data *data, char **line, int fd);
+t_tex			ft_parsing_tex(t_data *data, char **line, int fd, int i);
 t_tex			ft_find_tex(t_data *data);
 t_key			*ft_new_key(int keycode);
 t_sprite		*ft_new_sprite(t_data *data, t_xy coord, t_xy dir);

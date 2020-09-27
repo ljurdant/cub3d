@@ -6,7 +6,7 @@
 /*   By: ljurdant <ljurdant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 17:11:11 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/13 22:23:42 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:55:02 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ int		ft_search(char *line, char c)
 	return (-1);
 }
 
-void	ft_skip_blanks(int fd, char **line)
+int		ft_skip_blanks(int fd, char **line)
 {
-	ft_get_next_line(fd, line);
-	while (*line == NULL || (*line)[0] == '\0')
-		ft_get_next_line(fd, line);
+	int	r;
+
+	r = ft_get_next_line(fd, line);
+	while (r && (*line == NULL || (*line)[0] == '\0'))
+		r = ft_get_next_line(fd, line);
+	return (r);
 }
 
 void	ft_parsing_r(t_data *data, char **line)
@@ -44,38 +47,33 @@ void	ft_parsing_r(t_data *data, char **line)
 		data->width = 2560;
 	if (data->height > 1440)
 		data->height = 1440;
-	while ((*line)[i])
-	{
-		if ((*line)[i] != ' ')
-			ft_error_message(6, data, *line);
-		i++;
-	}
+	ft_skip_spaces(*line, &i);
+	if ((*line)[i])
+		ft_error_message(6, data, *line);
 }
 
-t_tex	ft_parsing_tex(t_data *data, char **line, int fd)
+t_tex	ft_parsing_tex(t_data *data, char **line, int fd, int i)
 {
-	int		i;
 	int		j;
 	int		size;
 	char	*str;
 	t_tex	tex;
 
-	while ((i = ft_search(*line, '.')) < 0)
-		ft_get_next_line(fd, line);
 	size = 0;
+	i = i + 2;
+	ft_skip_spaces(*line, &i);
 	while ((*line)[i + size] && (*line)[i + size] != ' ')
 		size++;
 	if (!(str = malloc(sizeof(char) * (size + 1))))
 		str = malloc(0);
 	j = 0;
-	while (j < size)
+	while (j <= size)
 		str[j++] = (*line)[i++];
-	str[size] = '\0';
-	tex.tex.img = mlx_xpm_file_to_image(data->mlx,
-	str, &tex.width, &tex.height);
+	tex.tex.img = mlx_xpm_file_to_image(data->mlx, str,
+			&tex.width, &tex.height);
 	free(str);
 	if (!tex.tex.img)
-		ft_error_message(3, data, *line);
+		ft_error_message(16, data, *line);
 	tex.tex.addr = mlx_get_data_addr(tex.tex.img,
 	&tex.tex.bits_per_pixel, &tex.tex.line_length, &tex.tex.endian);
 	return (tex);
@@ -84,17 +82,13 @@ t_tex	ft_parsing_tex(t_data *data, char **line, int fd)
 void	ft_parsing(t_data *data, int fd)
 {
 	char	*line;
-	int		count;
+	int		r;
 
 	line = NULL;
-	count = 0;
 	data->fd = fd;
 	ft_tex_init(data);
-	while (count < 8)
-	{
-		ft_skip_blanks(fd, &line);
-		ft_parsing_param(data, &line, fd, &count);
-	}
+	while ((r = ft_skip_blanks(fd, &line)) && ft_line_check(line))
+		ft_parsing_param(data, &line, fd);
 	ft_check_params(data, &line);
 	data->map = ft_parsing_map(fd, &line);
 	free(line);

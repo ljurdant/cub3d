@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 18:13:35 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/08/19 18:16:02 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:30:50 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_first_and_last_line(char **map, int i, t_data *data)
 	int	j;
 
 	j = 0;
-	while (map[i][j])
+	while (map[i] && map[i][j])
 	{
 		if (!(map[i][j] == '1' || map[i][j] == ' '))
 			ft_error_message(1, data, NULL);
@@ -77,7 +77,7 @@ void	ft_map_error(char **map, t_data *data)
 
 	ft_first_and_last_line(map, 0, data);
 	i = 1;
-	while (map[i + 1])
+	while (map[i] && map[i + 1])
 	{
 		j = 0;
 		while (map[i][j])
@@ -86,6 +86,8 @@ void	ft_map_error(char **map, t_data *data)
 			|| !ft_vt_check(map[i + 1], j) || !(map[i][j - 1] == '1' ||
 			ft_is_floor(map[i][j - 1])) || !(map[i][j + 1] == '1' ||
 			ft_is_floor(map[i][j + 1]))))
+				ft_error_message(1, data, NULL);
+			if (!ft_is_map(map[i][j]))
 				ft_error_message(1, data, NULL);
 			j++;
 		}

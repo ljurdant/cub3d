@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 22:22:08 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/26 16:34:15 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:21:00 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ int		ft_parsing_nb(char *line, int *i, t_data *data)
 	int		n;
 
 	n = 0;
-	while (line[*i] == ',' || line[*i] == ' ')
-		(*i)++;
+	ft_skip_spaces(line, i);
 	if (line[*i] < '0' || line[*i] > '9')
 		ft_error_message(2, data, line);
-	while (line[*i] && (line[*i] >= '0' && line[*i] <= '9'))
+	while (line[*i] && (line[*i] >= '0' && line[*i] <= '9') && n < 2147483647)
 	{
 		n = 10 * n + line[*i] - 48;
 		(*i)++;
 	}
+	ft_skip_spaces(line, i);
 	if (n < 0)
 		n = 2147483647;
 	return (n);
@@ -71,9 +71,6 @@ char	**ft_parsing_map(int fd, char **line)
 	char	**map;
 
 	r = 1;
-	ft_skip_blanks(fd, line);
-	while (ft_search(*line, '1') < 0)
-		r = ft_get_next_line(fd, line);
 	if (!(tmp = malloc(sizeof(char *))))
 		return (NULL);
 	tmp[0] = NULL;
@@ -100,19 +97,20 @@ int		ft_parsing_color(int fd, char **line, t_data *data)
 	int				color;
 
 	i = 1;
-	while (ft_search(*line, ',') < 0)
-		ft_get_next_line(fd, line);
 	r = ft_parsing_nb(*line, &i, data);
+	if ((*line)[i] != ',')
+		ft_error_message(7, data, *line);
+	i++;
 	g = ft_parsing_nb(*line, &i, data);
+	if ((*line)[i] != ',')
+		ft_error_message(7, data, *line);
+	i++;
 	b = ft_parsing_nb(*line, &i, data);
 	if (r > 255 || g > 255 || b > 255)
 		ft_error_message(7, data, *line);
 	color = (0 << 24 | r << 16 | g << 8 | b);
-	while ((*line)[i])
-	{
-		if ((*line)[i] != ' ')
-			ft_error_message(7, data, *line);
-		i++;
-	}
+	ft_skip_spaces(*line, &i);
+	if ((*line)[i])
+		ft_error_message(7, data, *line);
 	return (color);
 }

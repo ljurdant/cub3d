@@ -6,7 +6,7 @@
 /*   By: ljurdant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 14:35:49 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/26 16:34:26 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:50:28 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,7 @@ void	ft_tex_init(t_data *data)
 	data->width = 0;
 }
 
-void	ft_c_tex(t_data *data, char **line, int fd, int *count)
-{
-	(*count) = *count - 1;
-	data->c_tex = ft_parsing_tex(data, line, fd);
-}
-
-void	ft_parsing_param(t_data *data, char **line, int fd, int *count)
+void	ft_parsing_param(t_data *data, char **line, int fd)
 {
 	int		i;
 
@@ -65,20 +59,19 @@ void	ft_parsing_param(t_data *data, char **line, int fd, int *count)
 	{
 		if (data->no.tex.img)
 			ft_error_message(9, data, *line);
-		data->no = ft_parsing_tex(data, line, fd);
+		data->no = ft_parsing_tex(data, line, fd, i);
 	}
 	if ((*line)[i] == 'S' && (*line)[i + 1] == 'O')
 	{
 		if (data->so.tex.img)
 			ft_error_message(9, data, *line);
-		data->so = ft_parsing_tex(data, line, fd);
+		data->so = ft_parsing_tex(data, line, fd, i);
 	}
 	if ((*line)[i] == 'W' && (*line)[i + 1] == 'E')
 	{
 		if (data->we.tex.img)
 			ft_error_message(9, data, *line);
-		data->we = ft_parsing_tex(data, line, fd);
+		data->we = ft_parsing_tex(data, line, fd, i);
 	}
-	ft_parsing_par_2(data, line, fd, count);
-	(*count)++;
+	ft_parsing_param_2(data, line, fd);
 }
