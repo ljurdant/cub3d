@@ -1,6 +1,6 @@
 NAME =			Cub3D
 
-FLAGS =	-Wall -Wextra -Werror -fsanitize=address
+FLAGS =	-Wall -Wextra -Werror
 
 OS = $(shell uname)
 

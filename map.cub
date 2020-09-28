@@ -1,11 +1,11 @@
-R 10 10
+R 700 900
 
-F 50, 110, 40  
+F 50, 110, 40 
 
-C 51, 153, 255   
+C 51, 255, 255
 
 EA ./srcs/Textures/Texture_wall_4.xpm
-   WE  ./srcs/Textures/Texture_wall_4.xpm
+WE  ./srcs/Textures/Texture_wall_4.xpm
 
 S  ./srcs/Textures/Texture_lion.xpm
 SO ./srcs/Textures/Texture_wall_5.xpm

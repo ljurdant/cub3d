@@ -6,7 +6,7 @@
 /*   By: ljurdant <ljurdant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 17:11:11 by ljurdant          #+#    #+#             */
-/*   Updated: 2020/09/27 19:53:25 by ljurdant         ###   ########.fr       */
+/*   Updated: 2020/09/27 19:58:18 by ljurdant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_skip_blanks(int fd, char **line)
 	int	r;
 
 	r = ft_get_next_line(fd, line);
-	while (*line == NULL || (*line)[0] == '\0')
+	while (r && (*line == NULL || (*line)[0] == '\0'))
 		r = ft_get_next_line(fd, line);
 	return (r);
 }
@@ -63,7 +63,7 @@ t_tex	ft_parsing_tex(t_data *data, char **line, int fd, int i)
 	t_tex	tex;
 
 	size = 0;
-	i = i + 2;
+	i = i + 3;
 	ft_skip_spaces(*line, &i);
 	while ((*line)[i + size] && (*line)[i + size] != ' ')
 		size++;
@@ -72,8 +72,8 @@ t_tex	ft_parsing_tex(t_data *data, char **line, int fd, int i)
 	j = 0;
 	while (j <= size)
 		str[j++] = (*line)[i++];
-	tex.tex.img = mlx_xpm_file_to_image(data->mlx,
-	str, &tex.width, &tex.height);
+	tex.tex.img = mlx_xpm_file_to_image(data->mlx, str,
+			&tex.width, &tex.height);
 	free(str);
 	if (!tex.tex.img)
 		ft_error_message(16, data, *line);
