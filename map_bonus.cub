@@ -6,7 +6,7 @@ WE ./srcs/Textures/Texture_wall_4.xpm
 C 51, 110, 255
 S ./srcs/Textures/Texture_lion.xpm
 EA ./srcs/Textures/Texture_wall_4.xpm
-C_ ./srcs/Textures/Starry_night.xpm
+C_ ./srcs/Textures/Starry_night_2.xpm
 
 SO ./srcs/Textures/Texture_wall_5.xpm
 NO    ./srcs/Textures/Texture_wall_5.xpm

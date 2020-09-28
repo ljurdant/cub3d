@@ -17,24 +17,25 @@ void	ft_starry_night(t_data *data, t_rect rect)
 	int		i;
 	int		j;
 	int		color;
-	t_tex	tex;
+	float	angle;
 	t_xy	tex_pos;
 
-	tex = data->c_tex;
-	i = rect.x;
-	while (i < rect.x + rect.width)
+	i = 0;
+	angle = atan(data->dir.y / data->dir.x) + 33 * M_PI / 180;
+	while (i < data->width)
 	{
 		j = data->height / 2 - data->offset;
-		tex_pos.x = i * tex.width / rect.width;
+		tex_pos.x = angle / ( M_PI) * data->c_tex.width;
 		while (j < rect.height)
 		{
-			tex_pos.y = tex.height * j / rect.height;
-			color = *(int *)(tex.tex.addr + (int)tex_pos.y * tex.tex.line_length
-					+ (int)tex_pos.x * 4);
+			tex_pos.y = data->c_tex.height * j / rect.height;
+			color = *(int *)(data->c_tex.tex.addr + (int)tex_pos.y * 
+			data->c_tex.tex.line_length + (int)tex_pos.x * 4);
 			my_mlx_pixel_put(&data->img, i, j
 			- data->height / 2 + data->offset, color);
 			j++;
 		}
 		i++;
+		angle -= (66 * M_PI / 180) / data->width;
 	}
 }
