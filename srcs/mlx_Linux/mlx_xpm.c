@@ -12,7 +12,7 @@
 #include	"mlx_int.h"
 
 extern struct s_col_name mlx_col_name[];
-
+int             mlx_get_color_value(t_xvar *xvar,int color);
 
 #define	RETURN	{ if (colors) free(colors); if (tab) free(tab); \
 		if (colors_direct) free(colors_direct); \

@@ -16,7 +16,7 @@
 void	*mlx_init()
 {
 	t_xvar	*xvar;
-	
+
 	if (!(xvar = malloc(sizeof(*xvar))) || (xvar->display = XOpenDisplay(""))==0)
 		return ((void *)0);
 	xvar->screen = DefaultScreen(xvar->display);

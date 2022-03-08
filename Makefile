@@ -1,6 +1,6 @@
 NAME =			Cub3D
 
-FLAGS =	-Wall -Wextra -Werror
+FLAGS =	-Wall -Wextra -Werror -g3
 
 OS = $(shell uname)
 
@@ -66,7 +66,7 @@ MAKE_MLX = $(MAKE) -C ./srcs/mlx
 else
 OBJS = $(OBJS_LINUX) $(BASE_OBJS)
 BONUS = $(BASE_OBJS) $(OBJS_BLINUX)
-LINK = -lm -lmlx_Linux -lX11 -lXext -lbsd -lft
+LINK = -lm -lmlx -lX11 -lXext -lbsd -lft
 LIBS =	-Lsrcs/libft -Lsrcs/mlx_Linux
 MAKE_MLX = $(MAKE) -C ./srcs/mlx_Linux 
 endif

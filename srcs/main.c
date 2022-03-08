@@ -36,7 +36,8 @@ int		main(int ac, char **ag)
 		ft_arg_errors(1);
 	if (ac == 3 && ft_strncmp(ag[2], "--save", 7))
 		ft_arg_errors(2);
-	data.mlx = mlx_init();
+	if (!(data.mlx = mlx_init()))
+		return (1);
 	ft_extension(ag[1]);
 	if ((o = open(ag[1], O_RDONLY)) < 0)
 		ft_error_message(8, &data, NULL);
