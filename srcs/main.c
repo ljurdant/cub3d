@@ -37,7 +37,10 @@ int		main(int ac, char **ag)
 	if (ac == 3 && ft_strncmp(ag[2], "--save", 7))
 		ft_arg_errors(2);
 	if (!(data.mlx = mlx_init()))
+	{
+		printf("Error: system does not support X11 events\n");
 		return (1);
+	}	
 	ft_extension(ag[1]);
 	if ((o = open(ag[1], O_RDONLY)) < 0)
 		ft_error_message(8, &data, NULL);

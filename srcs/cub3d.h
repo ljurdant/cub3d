@@ -20,6 +20,29 @@
 # include <unistd.h>
 # include <stdio.h>
 # define BUFFER_SIZE 20
+# ifndef __APPLE__
+#  define UP 65362
+#  define DOWN 65364
+#  define LEFT 65363
+#  define RIGHT 65361
+#  define ESC 65307
+#  define W 119
+#  define A 97
+#  define S 115
+#  define D 100
+# elif
+#  define UP 126
+#  define DOWN 125
+#  define LEFT 124
+#  define RIGHT 123
+#  define ESC 53
+#  define W 13
+#  define A 0
+#  define S 1
+#  define D 2 
+# endif
+
+
 
 typedef struct	s_img
 {

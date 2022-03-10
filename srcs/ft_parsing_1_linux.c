@@ -45,7 +45,6 @@ void	ft_parsing_r(t_data *data, char **line)
 	i = 1;
 	data->width = ft_parsing_nb(*line, &i, data);
 	data->height = ft_parsing_nb(*line, &i, data);
-	printf("hello\n");
 	mlx_get_screen_size(data->mlx, &width, &height);
 	if (data->width > width)
 		data->width = width;

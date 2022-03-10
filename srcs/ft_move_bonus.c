@@ -61,20 +61,20 @@ void	ft_move_left(t_data *data)
 
 void	ft_move(t_data *data)
 {
-	if (ft_key_check(&data->keys, 13))
+	if (ft_key_check(&data->keys, W))
 		ft_move_forward(data);
-	if (ft_key_check(&data->keys, 1))
+	if (ft_key_check(&data->keys, S))
 		ft_move_backward(data);
-	if (ft_key_check(&data->keys, 0))
+	if (ft_key_check(&data->keys, A))
 		ft_move_left(data);
-	if (ft_key_check(&data->keys, 2))
+	if (ft_key_check(&data->keys, D))
 		ft_move_right(data);
-	if (ft_key_check(&data->keys, 124))
+	if (ft_key_check(&data->keys, LEFT))
 		ft_turn_left(data);
-	if (ft_key_check(&data->keys, 123))
+	if (ft_key_check(&data->keys, RIGHT))
 		ft_turn_right(data);
-	if (ft_key_check(&data->keys, 126))
+	if (ft_key_check(&data->keys, UP))
 		ft_look_up(data);
-	if (ft_key_check(&data->keys, 125))
+	if (ft_key_check(&data->keys, DOWN))
 		ft_look_down(data);
 }

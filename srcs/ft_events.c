@@ -28,8 +28,6 @@ void	ft_free_keys(t_data *data)
 
 void	ft_free_all(t_data *data)
 {
-	if (data->win)
-		mlx_destroy_window(data->mlx, data->win);
 	if (data->img_old.img)
 		mlx_destroy_image(data->mlx, data->img_old.img);
 	if (data->img_new.img)
@@ -48,6 +46,8 @@ void	ft_free_all(t_data *data)
 		mlx_destroy_image(data->mlx, data->c_tex.tex.img);
 	if (data->map)
 		ft_free_table(data->map);
+	if (data->win)
+		mlx_destroy_window(data->mlx, data->win);
 }
 
 int		close_window(t_data *data)
@@ -61,7 +61,7 @@ int		key_press(int keycode, t_data *data)
 {
 	t_key	*key;
 
-	if (keycode == 53)
+	if (keycode == 65307)
 	{
 		return (close_window(data));
 	}

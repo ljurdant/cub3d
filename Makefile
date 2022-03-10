@@ -22,31 +22,30 @@ BASE_SRCS =		srcs/main.c\
 				srcs/ft_extension.c
 
 SRCS_LINUX =	srcs/ft_parsing_1_linux.c\
-				srcs/ft_events_linux.c\
-				srcs/ft_move_linux.c\
 				srcs/ft_draw_1.c\
-				srcs/ft_move2.c
+				srcs/ft_move2.c\
+				srcs/ft_move.c\
+				srcs/ft_events.c
 
 SRCS_MAC = 		srcs/ft_parsing_1.c\
-				srcs/ft_events.c\
-				srcs/ft_move.c\
 				srcs/ft_draw_1.c\
-				srcs/ft_move2.c
+				srcs/ft_move2.c\
+				srcs/ft_move.c\
+				srcs/ft_events.c
 
 SRCS_BMAC =		srcs/ft_parsing_1.c\
-				srcs/ft_events.c\
 				srcs/ft_draw_1_bonus.c\
 				srcs/ft_move2_bonus.c\
 				srcs/ft_starry_night_bonus.c\
-				srcs/ft_move_bonus.c
+				srcs/ft_move_bonus.c\
+				srcs/ft_events.c
 
 SRCS_BLINUX =	srcs/ft_parsing_1_linux.c\
-				srcs/ft_events_linux.c\
 				srcs/ft_draw_1_bonus.c\
 				srcs/ft_move2_bonus.c\
 				srcs/ft_starry_night_bonus.c\
-				srcs/ft_move_linux_bonus.c
-
+				srcs/ft_move_bonus.c\
+				srcs/ft_events.c
 	
 HEADERS =   	srcs/cub3D.h
 
