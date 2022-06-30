@@ -88,13 +88,14 @@ bonus :			$(BONUS)
 
 clean	: 
 				rm -rf $(BONUS)
-				rm -rf $(OBJS)
+				rm -rf $(OBJS) $(BONUS)
+				$(MAKE) -C ./srcs/libft/. clean
+				$(MAKE) -C ./srcs/mlx/. clean
+				$(MAKE) -C ./srcs/mlx_Linux/. clean
 				rm -rf bonus
 
 fclean  :		clean
 				$(MAKE) -C ./srcs/libft/. fclean
-				$(MAKE) -C ./srcs/mlx/. clean
-				$(MAKE) -C ./srcs/mlx_Linux/. clean
 				rm -rf $(NAME)
 
 re      : 		fclean all
